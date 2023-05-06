@@ -1,0 +1,12 @@
+/* This is the selected item in the menu*/
+.ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected{
+    color:white !important;
+}
+
+
+/* when the cursor hovers over the item, the text color of the item changes to white   */
+/*represents the currently active item in the menu*/
+
+.ant-menu-light .ant-menu-item-active{
+    color:white !important;
+ }
