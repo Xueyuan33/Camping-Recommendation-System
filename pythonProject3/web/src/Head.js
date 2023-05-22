@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import { Layout,Menu} from 'antd';
+import {useNavigate} from 'react-router-dom';
 import NewButton from './NewButton'
 const {Header} = Layout;
 
@@ -7,6 +8,12 @@ const {Header} = Layout;
 function Head(){
 
     const [menus, setMenus]= useState([ {title:"Campgrounds", path:"/"}, {title:"Menu",path:"/"},{title:"About",path:"/"} ]);
+    const navigate=useNavigate();
+    // click Campgrounds then return to home page
+    const menuClick = (event)=> {
+        console.log(event);
+        navigate(event.item.props.path)
+    }
     return (
             <Header style={{
                     // textAlign: 'center',
@@ -41,8 +48,10 @@ function Head(){
                     items={menus.map((item)=>{
                       const key=item.title;
                       return {key, label: `${item.title}`, path: item.path};
-                    })}>
-                    </Menu>
+                    })}
+
+                    onClick={menuClick}
+                    />
                 </div>
 
                 <NewButton />
